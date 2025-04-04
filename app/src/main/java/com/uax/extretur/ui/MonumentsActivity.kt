@@ -21,7 +21,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
     //adaptador
     private lateinit var adaptadorMonumentos: AdaptadorMonumentos
 
-
+    //TO-DO: revisar intent. El titulo de extretur muy largo.
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMonumentsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -33,8 +33,8 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
 
     private fun instancias() {
         listaMonumentos = arrayListOf(
-            Monumento ("Acueducto Los Milagros","Acueducto romano en Mérida", R.drawable.monuments.meridaAcueducto.png, "Badajoz"),
-            Monumento ("Monasterio de Tentudía","Monasterio ubicado en Tentudía", R.drawable.monuments.tentudia.png, "Badajoz")
+            Monumento ("Acueducto Los Milagros","Acueducto romano en Mérida","Badajoz", R.drawable.meridaacueducto),
+            Monumento ("Monasterio de Tentudía","Monasterio ubicado en Tentudía","Badajoz", R.drawable.tentudia)
         )
         //inicializar el adaptador
         adaptadorMonumentos = AdaptadorMonumentos(listaMonumentos, this)
@@ -57,7 +57,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
 
         //vas a la lista y te quedas solo con los monumentos que tienen como atributo marca la misma que tiene el spinner seleccionada
         val listaFiltrada: ArrayList<Monumento> = listaMonumentos.filter {
-            it.provincia.equals("Badajoz" || "Caceres")
+            it.provincia.equals("Badajoz")
         } as ArrayList<Monumento>
         adaptadorMonumentos.actualizarLista(listaFiltrada)
     }
