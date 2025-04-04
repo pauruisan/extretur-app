@@ -22,34 +22,28 @@ class AdaptadorMonumentos (var listaMonumentos: ArrayList<Monumento>, var contex
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        TODO("Not yet implemented")
         //Crear el patron de las filas
-
-        return listaMonumentos.size
+        val vista = LayoutInflater.from(contexto).inflate(R.layout.monument_card, parent, false)
+        val holder: MyHolder = MyHolder(vista)
+        return holder
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
         //me dice cuantas filas hay
-        return listaMonumentos[position]
+        return listaMonumentos.size
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        TODO("Not yet implemented")
         //Me dice como se comporta cada fila
+        val monumento = listaMonumentos[position]
+        holder.imagen.setImageResource(monumento.imagen)
+        holder.boton
+        holder.titulo.text = monumento.nombre
+        holder.descripcion.text = monumento.descripcion
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        //el aspecto de cada fila -> necesito xml
-        val view: View = LayoutInflater.from(contexto).inflate(R.layout.monument_card, parent, false)
-        val imagen: ImageView = view.findViewById<ImageView>(R.id.//idImageView)
-        val titulo: TextView = view.findViewById<TextView>(R.id.//idTextView)
-
-            //necesito la marca para capturar sus propiedades
-            val monumento: Monumento = listaMonumentos[position]
-            imagen.setImageResource(monumento.imagen)
-            titulo.text = monumento.nombre
-                    return view
-
+    public fun actualizarLista(listaFiltrada: ArrayList<Monumento>){
+        this.listaMonumentos = listaFiltrada
+        notifyDataSetChanged()
     }
 }

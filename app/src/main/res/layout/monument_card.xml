@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Título"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/monumentImg"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Descripción del monumento"
+            android:layout_marginTop="3sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/monumentImg"
             app:layout_constraintTop_toBottomOf="@+id/txtMonumentTitle" />
