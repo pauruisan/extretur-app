@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExtreTur</string>
+    <string name="subtitle">"Una aplicación destinada a que descubras el turismo de Extremadura"</string>
+    <string name="txtMonumento">Lugares de interés</string>
+    <string name="txtArbol">Naturaleza y actividades</string>
+    <string name="txtGastro">Gastronomía</string>
+</resources>

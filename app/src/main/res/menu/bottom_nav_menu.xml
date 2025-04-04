@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/nav_home"
+        android:title="Inicio"/>
+    <item
+        android:id="@+id/foro"
+        android:icon="@drawable/nav_chat"
+        android:title="Foro"/>
+    <item
+        android:id="@+id/guardado"
+        android:icon="@drawable/nav_save"
+        android:title="Guardado"/>
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/nav_profile"
+        android:title="Perfil"/>
+</menu>

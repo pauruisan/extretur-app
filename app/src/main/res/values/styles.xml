@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MainButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/md_light_green_500</item>
+        <item name="android:textColor">@color/md_green_900</item>
+    </style>
+
+    <style name="TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">10sp</item>
+    </style>
+
+    <style name="Theme.SplashScreen" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@drawable/logo1</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>
