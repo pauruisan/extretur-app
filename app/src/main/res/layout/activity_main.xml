@@ -5,14 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5sp"
     android:theme="@style/Theme.ExtreTur"
     tools:context=".ui.MainActivity">
 
 
     <ImageView
         android:id="@+id/textTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380sp"
+        android:layout_height="165sp"
         android:src="@drawable/logo3"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +33,7 @@
     <Button
         android:id="@+id/btnMonumento"
         android:text="Lugares"
+        android:backgroundTint="@color/md_light_green_500"
         style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,6 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Próximos eventos"
+        android:textSize="18sp"
+        android:layout_marginTop="15sp"
         app:layout_constraintEnd_toEndOf="@+id/textGastro"
         app:layout_constraintStart_toStartOf="@+id/textGastro"
         app:layout_constraintTop_toBottomOf="@+id/textGastro" />

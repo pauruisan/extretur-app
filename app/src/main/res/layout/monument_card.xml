@@ -21,12 +21,13 @@
             android:scaleType="centerCrop"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:contentDescription="Imagen del monumento de la tarjeta seleccionada"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txtMonumentTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Título"
@@ -37,7 +38,7 @@
 
         <TextView
             android:id="@+id/txtMonumentDesc"
-            android:layout_width="wrap_content"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Descripción del monumento"
