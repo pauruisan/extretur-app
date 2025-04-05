@@ -3,36 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:padding="5sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.ExtreTur"
     tools:context=".ui.MonumentsActivity">
 
-    <EditText
-        android:id="@+id/editSearchMonument"
+    <ImageView
+        android:id="@+id/imgTitleMonument"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Busca un lugar aquí..."
-        android:inputType="text"
+        android:layout_height="125sp"
+        android:src="@drawable/titulo_monumento"
+        android:layout_marginTop="10sp"
+        android:contentDescription="Titulo en imagen de la MonumentsActivity.kt"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editSearchMonument"
+        android:layout_width="210sp"
+        android:layout_height="50sp"
+        android:hint="Busca un lugar aquí..."
+        android:inputType="text"
+        android:layout_marginTop="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTitleMonument" />
 
     <Button
         android:id="@+id/btnSearchMonument"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buscar"
         android:backgroundTint="@color/md_green_500"
+        android:text="Buscar"
+        android:layout_marginTop="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editSearchMonument"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgTitleMonument"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/monumentCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSearchMonument" />
