@@ -7,7 +7,6 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Orientation
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorMonumentos
 import com.uax.extretur.databinding.ActivityMonumentsBinding
@@ -33,8 +32,8 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
 
     private fun instancias() {
         listaMonumentos = arrayListOf(
-            Monumento ("Acueducto Los Milagros","Acueducto romano en Mérida","Badajoz", R.drawable.meridaacueducto),
-            Monumento ("Monasterio de Tentudía","Monasterio ubicado en Tentudía","Badajoz", R.drawable.tentudia)
+            Monumento ("Acueducto Los Milagros","Acueducto romano en Mérida","Badajoz", R.drawable.monumento_acueducto),
+            Monumento ("Monasterio de Tentudía","Monasterio ubicado en Tentudía","Badajoz", R.drawable.monumentos_tentudia)
         )
         //inicializar el adaptador
         adaptadorMonumentos = AdaptadorMonumentos(listaMonumentos, this)
