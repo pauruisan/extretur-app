@@ -44,6 +44,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
             binding.monumentCards.layoutManager = GridLayoutManager(this, 2)
         }
 
+            binding.monumentCards.adapter = adaptadorMonumentos
 
     }
 

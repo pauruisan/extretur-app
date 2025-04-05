@@ -18,9 +18,8 @@ class MainActivity : AppCompatActivity(),OnClickListener {
         setContentView(binding.root)
 
         val calendario = Calendar.getInstance()
-        val hoy = calendario.get(Calendar.DAY_OF_MONTH)
-
-        binding.calendario.date = hoy.toLong()
+        val hoy = calendario.timeInMillis
+        binding.calendario.date = hoy
 
 
 

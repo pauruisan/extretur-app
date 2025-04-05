@@ -8,15 +8,34 @@
     android:theme="@style/Theme.ExtreTur"
     tools:context=".ui.MonumentsActivity">
 
+    <EditText
+        android:id="@+id/editSearchMonument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Busca un lugar aquí..."
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSearchMonument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:backgroundTint="@color/md_green_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editSearchMonument"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/monumentCards"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editSearchMonument" />
     <include
         layout="@layout/bottom_navigation"
         android:id="@+id/navLayout"/>
