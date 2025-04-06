@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity(),OnClickListener {
                 //TODO: completar con el intent
             }
             binding.btnArbol.id -> {
-                //TODO: completar con el intent
+                intent = Intent(applicationContext, NaturActivity::class.java)
+                startActivity(intent)
             }
         }
     }
