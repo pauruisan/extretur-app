@@ -1,12 +1,15 @@
 package com.uax.extretur.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationBarView
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorGastro
 import com.uax.extretur.databinding.ActivityGastroBinding
@@ -23,6 +26,25 @@ class GastroActivity : AppCompatActivity(), OnItemSelectedListener {
 
         binding = ActivityGastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.navGastro.navLayout.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                return when (item.itemId){
+                    binding.navGastro.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    binding.navGastro.navLayout.menu.findItem(R.id.foro).itemId -> {
+                        //TODO: completar cuando haga el foro
+                        false
+                    }
+                    //TODO: terminar de completar los intents
+
+                    else -> false
+                }
+            }
+        })
 
         instancias()
         acciones()
@@ -52,9 +74,7 @@ class GastroActivity : AppCompatActivity(), OnItemSelectedListener {
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        //val monumentoSeleccionado: Monumento = adaptadorMonumentos.getItem(position)
 
-        //vas a la lista y te quedas solo con los monumentos que tienen como atributo marca la misma que tiene el spinner seleccionada
         val listaFiltrada: ArrayList<Gastro> = listaGastro.filter {
             it.nombre.equals("Baja")
         } as ArrayList<Gastro>

@@ -52,6 +52,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editSearchMonument" />
     <include
         layout="@layout/bottom_navigation"
-        android:id="@+id/navLayout"/>
+        android:id="@+id/nav_monuments"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

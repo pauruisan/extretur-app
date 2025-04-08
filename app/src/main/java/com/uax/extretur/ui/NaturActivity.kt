@@ -1,12 +1,15 @@
 package com.uax.extretur.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationBarView
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorNatur
 import com.uax.extretur.databinding.ActivityNaturBinding
@@ -23,6 +26,25 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
 
         binding = ActivityNaturBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.navNatur.navLayout.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                return when (item.itemId){
+                    binding.navNatur.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    binding.navNatur.navLayout.menu.findItem(R.id.foro).itemId -> {
+                        //TODO: completar cuando haga el foro
+                        false
+                    }
+                    //TODO: terminar de completar los intents
+
+                    else -> false
+                }
+            }
+        })
 
         instancias()
         acciones()
