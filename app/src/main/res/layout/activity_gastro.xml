@@ -10,10 +10,10 @@
     tools:context=".ui.NaturActivity">
 
     <ImageView
-        android:id="@+id/imgTitleNatur"
+        android:id="@+id/imgTitleGastro"
         android:layout_width="wrap_content"
         android:layout_height="125sp"
-        android:src="@drawable/titulo_natur"
+        android:src="@drawable/titulo_gastro"
         android:layout_marginTop="10sp"
         android:contentDescription="Titulo en imagen de la NaturActivity.kt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,37 +21,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editSearchNatur"
+        android:id="@+id/editSearchGastro"
         android:layout_width="230sp"
         android:layout_height="50sp"
         android:hint="Busca una actividad aquí..."
         android:inputType="text"
         android:layout_marginTop="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgTitleNatur" />
+        app:layout_constraintTop_toBottomOf="@+id/imgTitleGastro" />
 
     <Button
-        android:id="@+id/btnSearchNatur"
+        android:id="@+id/btnSearchGastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/md_green_500"
         android:text="Buscar"
         android:layout_marginTop="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editSearchNatur"
-        app:layout_constraintTop_toBottomOf="@+id/imgTitleNatur"
+        app:layout_constraintStart_toEndOf="@+id/editSearchGastro"
+        app:layout_constraintTop_toBottomOf="@+id/imgTitleGastro"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/naturCards"
+        android:id="@+id/gastroCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSearchNatur" />
+        app:layout_constraintTop_toBottomOf="@+id/editSearchGastro" />
     <include
         layout="@layout/bottom_navigation"
         android:id="@+id/navLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -21,10 +21,7 @@ class MainActivity : AppCompatActivity(),OnClickListener {
         val hoy = calendario.timeInMillis
         binding.calendario.date = hoy
 
-
-
         acciones()
-
 
     }
 
@@ -42,7 +39,8 @@ class MainActivity : AppCompatActivity(),OnClickListener {
                 startActivity(intent)
             }
             binding.btnGastro.id -> {
-                //TODO: completar con el intent
+                intent = Intent(applicationContext, GastroActivity::class.java)
+                startActivity(intent)
             }
             binding.btnArbol.id -> {
                 intent = Intent(applicationContext, NaturActivity::class.java)

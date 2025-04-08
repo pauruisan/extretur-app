@@ -13,6 +13,10 @@
         android:theme="@style/Theme.ExtreTur"
         tools:targetApi="31">
         <activity
+            android:name=".ui.GastroActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ExtreTur" />
+        <activity
             android:name=".ui.NaturActivity"
             android:exported="false"
             android:theme="@style/Theme.ExtreTur" />
