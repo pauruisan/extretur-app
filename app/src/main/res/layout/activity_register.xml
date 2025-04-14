@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity"
+    tools:ignore="DuplicateIds">
+
+    <!-- Contenido scrollable -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRegister"
+                android:layout_width="match_parent"
+                android:layout_height="190sp"
+                android:backgroundTint="#86B85C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="240sp"
+                    android:layout_height="240sp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Logo de extretur"
+                    android:src="@drawable/logo1" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textTitleRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:text="Crear una nueva cuenta"
+                android:textAlignment="center"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardRegister" />
+
+            <TextView
+                android:id="@+id/txtNombreRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="25sp"
+                android:text="INTRODUCE TU NOMBRE Y TUS APELLIDOS"
+                app:layout_constraintEnd_toEndOf="@+id/textTitleRegister"
+                app:layout_constraintStart_toStartOf="@+id/textTitleRegister"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleRegister" />
+
+            <EditText
+                android:id="@+id/editNombreRegistro"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="emailAddress"
+                android:hint="Tu nombre"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombreRegistro" />
+
+            <EditText
+                android:id="@+id/editApellidosRegistro"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="emailAddress"
+                android:hint="Tus apellidos"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/editNombreRegistro" />
+
+            <TextView
+                android:id="@+id/txtCorreoRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="15sp"
+                android:text="INTRODUCE TU CORREO ELECTRÓNICO"
+                app:layout_constraintEnd_toEndOf="@+id/textTitleRegister"
+                app:layout_constraintStart_toStartOf="@+id/textTitleRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editApellidosRegistro" />
+
+            <EditText
+                android:id="@+id/editCorreoRegistro"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="emailAddress"
+                android:hint="Tu correo electrónico"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/txtCorreoRegistro" />
+
+            <TextView
+                android:id="@+id/txtCumpleRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="15sp"
+                android:text="INTRODUCE TU FECHA DE NACIMIENTO"
+                app:layout_constraintEnd_toEndOf="@+id/txtCorreoRegistro"
+                app:layout_constraintStart_toStartOf="@+id/txtCorreoRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/editCorreoRegistro" />
+
+            <EditText
+                android:id="@+id/editCumpleRegistro"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="birthDate"
+                android:focusable="false"
+                android:hint="Tu fecha de nacimiento"
+                android:inputType="none"
+                app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/txtCumpleRegistro" />
+
+            <TextView
+                android:id="@+id/txtPassRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="15sp"
+                android:text="INTRODUCE TU CONTRASEÑA"
+                app:layout_constraintStart_toStartOf="@+id/txtCorreoRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/editCumpleRegistro" />
+
+            <EditText
+                android:id="@+id/editPassLogIn"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="password"
+                android:hint="Tu contraseña"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/txtPassRegistro" />
+
+            <Button
+                android:id="@+id/btnLogIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#86B85C"
+                android:text="Registrarse"
+                app:layout_constraintEnd_toEndOf="@+id/editPassLogIn"
+                app:layout_constraintStart_toStartOf="@+id/editPassLogIn"
+                app:layout_constraintTop_toBottomOf="@+id/editPassLogIn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/nav_register"
+        layout="@layout/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
