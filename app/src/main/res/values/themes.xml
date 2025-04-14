@@ -6,6 +6,7 @@
         <item name="android:textColor">@color/md_black_1000</item>
         <item name="colorAccent">@color/md_green_500</item>
         <item name="colorPrimary">@color/md_green_50</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
     </style>
 
     <style name="Theme.ExtreTur" parent="Base.Theme.ExtreTur" />
