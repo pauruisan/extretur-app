@@ -34,6 +34,12 @@ class MainActivity : AppCompatActivity(),OnClickListener {
                         //TODO: completar cuando haga el foro
                         false
                     }
+                    binding.navMain.navLayout.menu.findItem(R.id.perfil).itemId -> {
+                        //TODO: terminar de manejar si es login, registro o perfil
+                        val intent = Intent(applicationContext, RegisterActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
                     //TODO: terminar de completar los intents
 
                     else -> false

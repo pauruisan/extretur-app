@@ -24,7 +24,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
     //adaptador
     private lateinit var adaptadorMonumentos: AdaptadorMonumentos
 
-    //TO-DO: revisar intent.
+    //TODO: revisar intent.
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMonumentsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
