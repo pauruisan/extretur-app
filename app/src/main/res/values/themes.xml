@@ -10,4 +10,8 @@
     </style>
 
     <style name="Theme.ExtreTur" parent="Base.Theme.ExtreTur" />
+
+    <style name="Theme.ExtreTur.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>

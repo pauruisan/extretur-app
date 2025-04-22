@@ -11,7 +11,4 @@
         <item name="android:layout_marginTop">10sp</item>
     </style>
 
-    <style name="Theme.SplashScreen" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:gravity">center</item>
-    </style>
 </resources>
