@@ -1,7 +1,7 @@
 package com.uax.extretur.ui
 
 import android.content.Intent
-import java.util.Calendar
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityMainBinding
+import java.time.DayOfWeek
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity(),OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -20,9 +22,6 @@ class MainActivity : AppCompatActivity(),OnClickListener {
         //aqui los savedInstanceState
         setContentView(binding.root)
 
-        val calendario = Calendar.getInstance()
-        val hoy = calendario.timeInMillis
-        binding.calendario.date = hoy
 
         binding.navMain.navLayout.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -74,4 +73,5 @@ class MainActivity : AppCompatActivity(),OnClickListener {
             }
         }
     }
-}
+    }
+

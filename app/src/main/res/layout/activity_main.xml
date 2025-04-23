@@ -102,15 +102,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textGastro" />
 
 
-    <CalendarView
-        android:id="@+id/calendario"
-        android:layout_width="280sp"
-        android:layout_height="300sp"
-        android:background="@color/md_white_1000"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txtMonumento"
-        app:layout_constraintTop_toBottomOf="@+id/textCalendario" />
 
     <include
         layout="@layout/bottom_navigation"

@@ -11,9 +11,9 @@
         android:id="@+id/imgProfile"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/nav_profile"
-        android:contentDescription="Imagen del perfil del usuario"
         android:layout_marginTop="30dp"
+        android:contentDescription="Imagen del perfil del usuario"
+        android:src="@drawable/nav_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,60 +32,194 @@
         android:id="@+id/txtCorreoPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="nombreapellido@gmail.com"
         android:textSize="16sp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintStart_toStartOf="@+id/imgProfile"
         app:layout_constraintTop_toBottomOf="@+id/txtNombrePerfil" />
 
-    <TextView
-        android:id="@+id/txtAjustesTitle"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+    <ScrollView
+        android:id="@+id/scrollProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        android:background="@color/md_green_500"
-        android:gravity="center_vertical"
-        android:paddingStart="10dp"
-        android:text="Ajustes generales"
-        android:textSize="16sp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreoPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreoPerfil">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txtAjustesTitle"
-        app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txtModeLight"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:paddingStart="10dp"
-            android:text="Aspecto"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/txtAjustesTitle"
-            app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle" />
+            <TextView
+                android:id="@+id/txtAjustesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/md_green_500"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Ajustes generales"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/txtModeLight"
-            app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle" />
+            <LinearLayout
+                android:id="@+id/linearMode"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtAjustesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txtModeLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="280dp"
+                    android:text="Aspecto"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/txtAjustesTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    app:layout_constraintStart_toEndOf="@+id/txtModeLight"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearPass"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearMode">
+
+                <TextView
+                    android:id="@+id/txtChangePass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="200dp"
+                    android:text="Cambiar contraseña"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/txtAjustesTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAjustesTitle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearPass">
+
+                <TextView
+                    android:id="@+id/txtIdioma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="200dp"
+                    android:text="Idioma"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="15dp"
+                    android:entries="@array/idiomas" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/txtInfoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/md_green_500"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Información"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLanguage" />
+
+            <TextView
+                android:id="@+id/txtAboutApp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Sobre la aplicación"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
+
+            <TextView
+                android:id="@+id/txtTerms"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Términos y condiciones"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtAboutApp" />
+
+            <TextView
+                android:id="@+id/txtPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Política de privacidad"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTerms" />
+
+            <TextView
+                android:id="@+id/txtShare"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Compartir esta aplicación"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPrivacy" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:backgroundTint="@color/md_red_500"
+                android:text="Cerrar sesión"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtShare" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
     <include
-        android:id="@+id/nav_register"
+        android:id="@+id/nav_profile"
         layout="@layout/bottom_navigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
