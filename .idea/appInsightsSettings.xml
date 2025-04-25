@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.uax.extretur" />
+                  <option name="mobileSdkAppId" value="1:940310806159:android:ec5469c210ddf6b1693afa" />
+                  <option name="projectId" value="extretur-db" />
+                  <option name="projectNumber" value="940310806159" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

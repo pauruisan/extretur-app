@@ -142,7 +142,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/editCumpleRegistro" />
 
             <EditText
-                android:id="@+id/editPassLogIn"
+                android:id="@+id/editPassRegistro"
                 android:layout_width="240sp"
                 android:layout_height="48sp"
                 android:autofillHints="password"
@@ -153,14 +153,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtPassRegistro" />
 
             <Button
-                android:id="@+id/btnLogIn"
+                android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#86B85C"
                 android:text="Registrarse"
-                app:layout_constraintEnd_toEndOf="@+id/editPassLogIn"
-                app:layout_constraintStart_toStartOf="@+id/editPassLogIn"
-                app:layout_constraintTop_toBottomOf="@+id/editPassLogIn" />
+                app:layout_constraintEnd_toEndOf="@+id/editPassRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editPassRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/editPassRegistro" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

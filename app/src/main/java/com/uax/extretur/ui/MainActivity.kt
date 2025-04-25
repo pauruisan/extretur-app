@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityMainBinding
-import java.time.DayOfWeek
-import java.time.LocalDate
 
 class MainActivity : AppCompatActivity(),OnClickListener {
     private lateinit var binding: ActivityMainBinding
