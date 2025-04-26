@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8sp"
                 android:paddingLeft="25sp"
-                android:text="INTRODUCE TU NOMBRE Y TUS APELLIDOS"
+                android:text="INTRODUCE TU NOMBRE"
                 app:layout_constraintEnd_toEndOf="@+id/textTitleRegister"
                 app:layout_constraintStart_toStartOf="@+id/textTitleRegister"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleRegister" />
@@ -75,6 +75,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtNombreRegistro" />
 
+            <TextView
+                android:id="@+id/txtApellidosRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="25sp"
+                android:text="INTRODUCE TUS APELLIDOS"
+                app:layout_constraintEnd_toEndOf="@+id/textTitleRegister"
+                app:layout_constraintStart_toStartOf="@+id/textTitleRegister"
+                app:layout_constraintTop_toBottomOf="@+id/editNombreRegistro" />
+
             <EditText
                 android:id="@+id/editApellidosRegistro"
                 android:layout_width="240sp"
@@ -84,7 +95,7 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
                 app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
-                app:layout_constraintTop_toBottomOf="@+id/editNombreRegistro" />
+                app:layout_constraintTop_toBottomOf="@+id/txtApellidosRegistro" />
 
             <TextView
                 android:id="@+id/txtCorreoRegistro"
