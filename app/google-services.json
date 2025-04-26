@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940310806159",
+    "project_id": "extretur-db",
+    "storage_bucket": "extretur-db.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940310806159:android:ec5469c210ddf6b1693afa",
+        "android_client_info": {
+          "package_name": "com.uax.extretur"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJXvBn1kYB32I7DhOcA5Z5B17ueGk9E8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.uax.extretur"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -38,6 +38,9 @@ android {
     viewBinding {
         enable = true
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -47,7 +50,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
