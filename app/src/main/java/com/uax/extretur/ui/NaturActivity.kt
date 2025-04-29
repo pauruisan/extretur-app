@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.auth.FirebaseAuth
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorNatur
 import com.uax.extretur.databinding.ActivityNaturBinding
@@ -18,6 +19,7 @@ import com.uax.extretur.model.Natur
 class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
 
     private lateinit var binding: ActivityNaturBinding
+    private lateinit var auth: FirebaseAuth
     private lateinit var listaNatur: ArrayList<Natur>
     private lateinit var adaptadorNatur: AdaptadorNatur
 
@@ -31,13 +33,31 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navNatur.navLayout.menu.findItem(R.id.inicio).itemId -> {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
                         true
                     }
                     binding.navNatur.navLayout.menu.findItem(R.id.foro).itemId -> {
-                        //TODO: completar cuando haga el foro
-                        false
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ForumActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
+                    }
+                    binding.navNatur.navLayout.menu.findItem(R.id.perfil).itemId -> {
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
                     }
                     //TODO: terminar de completar los intents
 

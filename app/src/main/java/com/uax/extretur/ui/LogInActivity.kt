@@ -41,13 +41,31 @@ class LogInActivity : AppCompatActivity() {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navLogIn.navLayout.menu.findItem(R.id.inicio).itemId -> {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
                         true
                     }
                     binding.navLogIn.navLayout.menu.findItem(R.id.foro).itemId -> {
-                        //TODO: completar cuando haga el foro
-                        false
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ForumActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
+                    }
+                    binding.navLogIn.navLayout.menu.findItem(R.id.perfil).itemId -> {
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
                     }
                     //TODO: terminar de completar los intents
 

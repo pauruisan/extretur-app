@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.auth.FirebaseAuth
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorMonumentos
 import com.uax.extretur.databinding.ActivityMonumentsBinding
@@ -17,11 +18,8 @@ import com.uax.extretur.model.Monumento
 
 class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
     private lateinit var binding: ActivityMonumentsBinding
-
-    //lista
+    private lateinit var auth: FirebaseAuth
     private lateinit var listaMonumentos: ArrayList<Monumento>
-
-    //adaptador
     private lateinit var adaptadorMonumentos: AdaptadorMonumentos
 
     //TODO: revisar intent.
@@ -35,14 +33,31 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId) {
                     binding.navMonuments.navLayout.menu.findItem(R.id.inicio).itemId -> {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
                         true
                     }
-
                     binding.navMonuments.navLayout.menu.findItem(R.id.foro).itemId -> {
-                        //TODO: completar cuando haga el foro
-                        false
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ForumActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
+                    }
+                    binding.navMonuments.navLayout.menu.findItem(R.id.perfil).itemId -> {
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
                     }
                     //TODO: terminar de completar los intents
 

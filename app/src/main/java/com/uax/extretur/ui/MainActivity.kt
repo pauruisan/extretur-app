@@ -1,7 +1,6 @@
 package com.uax.extretur.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -10,9 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(),OnClickListener {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity(),OnClickListener {
         //aqui los savedInstanceState
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
 
         binding.navMain.navLayout.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -28,13 +31,27 @@ class MainActivity : AppCompatActivity(),OnClickListener {
                         true
                     }
                     binding.navMain.navLayout.menu.findItem(R.id.foro).itemId -> {
-                        //TODO: completar cuando haga el foro
-                        false
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ForumActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
                     }
                     binding.navMain.navLayout.menu.findItem(R.id.perfil).itemId -> {
-                        //TODO: terminar de manejar si es login, registro o perfil
-                        val intent = Intent(applicationContext, RegisterActivity::class.java)
-                        startActivity(intent)
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
                         true
                     }
                     //TODO: terminar de completar los intents
@@ -58,15 +75,15 @@ class MainActivity : AppCompatActivity(),OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
             binding.btnMonumento.id -> {
-                intent = Intent(applicationContext, MonumentsActivity::class.java)
+                val intent = Intent(applicationContext, MonumentsActivity::class.java)
                 startActivity(intent)
             }
             binding.btnGastro.id -> {
-                intent = Intent(applicationContext, GastroActivity::class.java)
+                val intent = Intent(applicationContext, GastroActivity::class.java)
                 startActivity(intent)
             }
             binding.btnArbol.id -> {
-                intent = Intent(applicationContext, NaturActivity::class.java)
+                val intent = Intent(applicationContext, NaturActivity::class.java)
                 startActivity(intent)
             }
         }

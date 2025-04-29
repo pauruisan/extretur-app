@@ -14,10 +14,12 @@ import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorGastro
 import com.uax.extretur.databinding.ActivityGastroBinding
 import com.uax.extretur.model.Gastro
+import com.google.firebase.auth.FirebaseAuth
 
 class GastroActivity : AppCompatActivity(), OnItemSelectedListener {
 
     private lateinit var binding: ActivityGastroBinding
+    private lateinit var auth: FirebaseAuth
     private lateinit var listaGastro: ArrayList<Gastro>
     private lateinit var adaptadorGastro: AdaptadorGastro
 
@@ -31,13 +33,31 @@ class GastroActivity : AppCompatActivity(), OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navGastro.navLayout.menu.findItem(R.id.inicio).itemId -> {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
                         true
                     }
                     binding.navGastro.navLayout.menu.findItem(R.id.foro).itemId -> {
-                        //TODO: completar cuando haga el foro
-                        false
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ForumActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
+                    }
+                    binding.navGastro.navLayout.menu.findItem(R.id.perfil).itemId -> {
+                        val user = auth.currentUser
+
+                        if (user == null) {
+                            val intent = Intent(applicationContext, LogInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(applicationContext, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
+                        true
                     }
                     //TODO: terminar de completar los intents
 
