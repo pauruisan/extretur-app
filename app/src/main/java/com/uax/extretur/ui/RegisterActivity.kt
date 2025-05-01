@@ -1,5 +1,6 @@
 package com.uax.extretur.ui
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -9,12 +10,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.uax.extretur.model.Usuario
 import com.uax.extretur.databinding.ActivityRegisterBinding
 import android.app.DatePickerDialog
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -108,11 +106,9 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             if (snapshot.exists()) {
-                                Toast.makeText(
-                                    this@RegisterActivity,
-                                    "El nombre de usuario ya está en uso, por favor elija otro",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                AlertDialog.Builder(this@RegisterActivity).setTitle("Username no disponible")
+                                    .setMessage("El nombre de usuario ya está en uso, por favor elija otro")
+                                    .setPositiveButton("Aceptar", null).show()
                             } else {
                                 auth.createUserWithEmailAndPassword(email, password)
                                     .addOnCompleteListener(this@RegisterActivity) { task ->
@@ -130,23 +126,12 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                                             refUsuarios =
                                                 database.getReference("usuarios").child(uid)
                                             refUsuarios.setValue(usuario)
-                                            Toast.makeText(
-                                                this@RegisterActivity,
-                                                "Te has registrado de manera correcta",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
-                                            val intent = Intent(
-                                                this@RegisterActivity,
-                                                ProfileActivity::class.java
-                                            )
+                                            Toast.makeText(this@RegisterActivity, "Te has registrado de manera correcta", Toast.LENGTH_SHORT).show()
+                                            val intent = Intent(this@RegisterActivity, ProfileActivity::class.java)
                                             startActivity(intent)
                                             finish()
                                         } else {
-                                            Toast.makeText(
-                                                this@RegisterActivity,
-                                                "Inicio de sesión incorrecto: ${task.exception?.message}",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            Toast.makeText(this@RegisterActivity, "Inicio de sesión incorrecto: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                                         }}}}
 
                         override fun onCancelled(error: DatabaseError) {

@@ -80,7 +80,6 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
             ref.get().addOnSuccessListener { snapshot ->
 
                 if (snapshot.exists()) {
-                    Log.d("FIREBASE_DATA", "Snapshot encontrado: ${snapshot.value}")
                     val nombre = snapshot.child("nombre").value.toString()
                     val apellidos = snapshot.child("apellidos").value.toString()
                     val email = snapshot.child("email").value.toString()
@@ -90,13 +89,8 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
                 } else {
                     binding.txtNombrePerfil.text = "No encontrado"
                     binding.txtCorreoPerfil.text = "No encontrado"
-                    Log.d("FIREBASE_DATA", "Snapshot no encontrado")
                 }
-
-
-
             }.addOnFailureListener {
-                Log.e("FIREBASE_ERROR", "Error al leer datos")
                 binding.txtNombrePerfil.text = "Error"
                 binding.txtCorreoPerfil.text = "Error"
             }
@@ -111,6 +105,7 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
                 Toast.makeText(this, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
                 val intent = Intent(applicationContext, LogInActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
     }
