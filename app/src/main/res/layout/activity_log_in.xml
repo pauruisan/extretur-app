@@ -89,12 +89,13 @@
         app:layout_constraintStart_toStartOf="@+id/editPassLogIn"
         app:layout_constraintTop_toBottomOf="@+id/editPassLogIn" />
 
-    <TextView
-        android:id="@+id/textGoRegister"
+    <Button
+        android:id="@+id/btnGoRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
         android:text="Registrarse"
+        android:textColor="@color/md_black_1000"
         android:layout_marginTop="35sp"
         app:layout_constraintEnd_toStartOf="@+id/textForgotPass"
         app:layout_constraintStart_toStartOf="@+id/txtCorreoLogIn"

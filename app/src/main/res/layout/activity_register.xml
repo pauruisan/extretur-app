@@ -143,6 +143,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtCumpleRegistro" />
 
             <TextView
+                android:id="@+id/txtUsernameRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="15sp"
+                android:text="INTRODUCE TU NOMBRE DE USUARIO"
+                app:layout_constraintEnd_toEndOf="@+id/txtCorreoRegistro"
+                app:layout_constraintStart_toStartOf="@+id/txtCorreoRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/editCumpleRegistro" />
+
+            <EditText
+                android:id="@+id/editUserNameRegistro"
+                android:layout_width="240sp"
+                android:layout_height="48sp"
+                android:autofillHints="username"
+                android:hint="Username"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editNombreRegistro"
+                app:layout_constraintStart_toStartOf="@+id/editNombreRegistro"
+                app:layout_constraintTop_toBottomOf="@+id/txtUsernameRegistro" />
+
+            <TextView
                 android:id="@+id/txtPassRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,7 +172,7 @@
                 android:paddingLeft="15sp"
                 android:text="INTRODUCE TU CONTRASEÑA"
                 app:layout_constraintStart_toStartOf="@+id/txtCorreoRegistro"
-                app:layout_constraintTop_toBottomOf="@+id/editCumpleRegistro" />
+                app:layout_constraintTop_toBottomOf="@+id/editUserNameRegistro" />
 
             <EditText
                 android:id="@+id/editPassRegistro"

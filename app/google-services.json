@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "940310806159",
+    "firebase_url": "https://extretur-db-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "extretur-db",
     "storage_bucket": "extretur-db.firebasestorage.app"
   },
