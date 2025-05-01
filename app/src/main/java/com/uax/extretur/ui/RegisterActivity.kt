@@ -147,10 +147,7 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                                                 "Inicio de sesión incorrecto: ${task.exception?.message}",
                                                 Toast.LENGTH_SHORT
                                             ).show()
-                                        }
-                                    }
-                            }
-                        }
+                                        }}}}
 
                         override fun onCancelled(error: DatabaseError) {
                             Toast.makeText(
@@ -158,10 +155,7 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                                 "Error en la base de datos: ${error.message}",
                                 Toast.LENGTH_SHORT
                             ).show()
-
-                        }
-                    })
-            }
+                        }})}
 
             binding.editCumpleRegistro.id -> {
                 val calendar = Calendar.getInstance()
