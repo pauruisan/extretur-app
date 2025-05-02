@@ -1,17 +1,20 @@
 package com.uax.extretur.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.uax.extretur.R
 import com.uax.extretur.model.Forum
+import com.uax.extretur.ui.DetailForumActivity
 
-class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) :
-    RecyclerView.Adapter<AdaptadorForum.MyHolder>() {
+class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) : RecyclerView.Adapter<AdaptadorForum.MyHolder>() {
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val boton = itemView.findViewById<Button>(R.id.btnForoCard)
@@ -26,9 +29,15 @@ class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) :
         return holder
     }
 
-    override fun onBindViewHolder(holder: AdaptadorForum.MyHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val tema = listaForum[position]
-        holder.boton
+        holder.boton.setOnClickListener {
+            val intent = Intent(contexto, DetailForumActivity::class.java)
+            val bundle = Bundle()
+            bundle.putSerializable("tema", tema)
+            intent.putExtras(bundle)
+                contexto.startActivity(intent)
+        }
         holder.titulo.text = tema.titulo
         holder.descripcion.text
         holder.fecha.text = tema.fecha
