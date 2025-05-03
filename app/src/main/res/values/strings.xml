@@ -10,4 +10,12 @@
         <item>Inglés</item>
     </string-array>
 
+    <string-array name="temaForo">
+        <item>Actividades</item>
+        <item>Gastronomía</item>
+        <item>Naturaleza</item>
+        <item>General</item>
+        <item>Errores en app</item>
+    </string-array>
+
 </resources>
