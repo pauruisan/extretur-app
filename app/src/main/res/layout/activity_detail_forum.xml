@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.DetailForumActivity">
+
+    <TextView
+        android:id="@+id/txtThemeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Titulo del tema"
+        android:textSize="38sp"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/md_green_500"/>
+
+    <TextView
+        android:id="@+id/txtThemeComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Contenido del tema"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editInsertComment"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:hint="Escribe aquí tu comentario"/>
+
+        <Button
+            android:id="@+id/btnInsertComment"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/md_green_500"
+            android:text="Añadir" />
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btnDeleteTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/md_red_500"
+        android:text="Eliminar tema" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
