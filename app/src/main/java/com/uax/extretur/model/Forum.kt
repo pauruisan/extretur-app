@@ -2,8 +2,8 @@ package com.uax.extretur.model
 
 import java.io.Serializable
 
-class Forum (
-    var id: String = "",
+data class Forum (
+    var uid: String,
     var titulo: String,
     var contenido: String,
     var fecha: String,

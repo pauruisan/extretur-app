@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -123,6 +124,7 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                                                 username = username,
                                                 fechaNacimiento = cumple
                                             )
+                                            val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(username).build()
                                             refUsuarios =
                                                 database.getReference("usuarios").child(uid)
                                             refUsuarios.setValue(usuario)

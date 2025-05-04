@@ -3,6 +3,9 @@ package com.uax.extretur.ui
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -19,7 +22,9 @@ import com.uax.extretur.model.Forum
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.uax.extretur.databinding.DialogNewThemeBinding
+import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface.OnShowListener {
     private lateinit var binding: ActivityForumBinding
@@ -34,7 +39,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
         super.onCreate(savedInstanceState)
         binding = ActivityForumBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        auth = FirebaseAuth.getInstance()
         acciones()
         instancias()
 
@@ -107,52 +112,69 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                     .setTitle("Crear nuevo tema")
                     .setView(dialogView.root)
                     .setPositiveButton("Publicar", null)
-                    .setCancelable(false).create()
+                    .setNegativeButton("Cancelar", null).create()
 
                 alertDialog.setOnShowListener(this)
                 alertDialog.show()
-            } } }
+            }
+        }
+    }
 
     override fun onShow(dialog: DialogInterface?) {
-        val btnPublicar = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) //TODO: crear btn cancelar y volver atrás. La app se rompe al hacer click en Publicar
+        val btnPublicar =
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) //TODO: crear btn cancelar y volver atrás.
+        btnPublicar.isEnabled = false
+
+
+        val watcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val titulo = dialogView.editTituloTheme.text.toString()
+                val contenido = dialogView.editContentTheme.text.toString()
+                btnPublicar.isEnabled = titulo.isNotBlank() && contenido.isNotBlank()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        }
+
+        dialogView.editTituloTheme.addTextChangedListener(watcher)
+        dialogView.editContentTheme.addTextChangedListener(watcher)
 
         btnPublicar.setOnClickListener {
             val titulo = dialogView.editTituloTheme.text.toString()
             val contenido = dialogView.editContentTheme.text.toString()
             val temaSeleccionado = dialogView.spinnerTheme.selectedItem.toString()
+            val formatoFecha = SimpleDateFormat("dd/MM/yyyy", Locale("es", "ES"))
+            val uid = auth.currentUser?.uid ?: ""
 
-            if (titulo.isNotEmpty() && contenido.isNotEmpty()) {
-                val Forum = Forum(
-                    titulo = titulo,
-                    contenido = contenido,
-                    fecha = Date().toString(),
-                    creador = auth.currentUser?.email.toString(), //TODO: cambiar email por username
-                    tema = temaSeleccionado
-                )
-                db.collection("temas").add(Forum)
-                    .addOnSuccessListener { documentReference ->
-                        Forum.id = documentReference.id
-                        listaForum.add(Forum)
-                        adaptadorForum.notifyItemInserted(listaForum.size - 1)
+            val forum = Forum(
+                uid = uid,
+                titulo = titulo,
+                contenido = contenido,
+                fecha = formatoFecha.format(Date()),
+                creador = auth.currentUser?.displayName
+                    ?: "Anónimo",
+                tema = temaSeleccionado
+            )
+            db.collection("temas").add(forum)
+                .addOnSuccessListener { documentReference ->
+                    forum.uid = documentReference.id
+                    listaForum.add(forum)
+                    adaptadorForum.notifyItemInserted(listaForum.size - 1)
 
-                        val intent = Intent(applicationContext, DetailForumActivity::class.java)
-                        startActivity(intent)
-                            alertDialog.dismiss()}
+                    val intent = Intent(applicationContext, DetailForumActivity::class.java)
+                    startActivity(intent)
+                    alertDialog.dismiss()
+                }
 
-                            .addOnFailureListener {
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Error al crear el tema",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-            } else {
-                Toast.makeText(
-                    applicationContext,
-                    "Rellena todos los campos, por favor.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+                .addOnFailureListener { e ->
+                    Log.e("FirestoreError", "Error al crear el tema", e)
+                    Toast.makeText(
+                        applicationContext,
+                        "Error al crear el tema: ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
         }
     }
-    }
+}
