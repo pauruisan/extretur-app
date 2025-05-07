@@ -9,5 +9,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="14sp"
-        tools:text="22" />
+        tools:text="22"
+        android:textColor="@color/md_green_900"
+        android:background="?attr/selectableItemBackground"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
