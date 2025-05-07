@@ -39,7 +39,7 @@ class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) : 
                 contexto.startActivity(intent)
         }
         holder.titulo.text = tema.titulo
-        holder.descripcion.text
+        holder.descripcion.text = tema.contenido
         holder.fecha.text = tema.fecha
     }
 

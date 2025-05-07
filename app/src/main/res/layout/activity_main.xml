@@ -14,97 +14,151 @@
         android:id="@+id/textTitle"
         android:layout_width="0sp"
         android:layout_height="145sp"
+        android:contentDescription="Título de la app"
+        android:scaleType="centerCrop"
         android:src="@drawable/logo3"
-        android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textSubtitle"
-        android:layout_width="650px"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/subtitle"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/textTitle"
-        app:layout_constraintStart_toStartOf="@+id/textTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
-
-    <Button
-        android:id="@+id/btnMonumento"
-        android:text="Lugares"
-        android:backgroundTint="@color/md_light_green_500"
-        style="@style/MainButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSubtitle" />
-    <TextView
-        android:id="@+id/txtMonumento"
-        android:text="@string/txtMonumento"
-        style="@style/TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/btnMonumento"
-        app:layout_constraintTop_toBottomOf="@id/btnMonumento"/>
-
-    <Button
-        android:id="@+id/btnArbol"
-        style="@style/MainButton"
-        android:text="Natur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSubtitle" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle">
 
-    <TextView
-        android:id="@+id/txtArbol"
-        android:layout_width="82sp"
-        android:layout_height="wrap_content"
-        android:text="@string/txtArbol"
-        style="@style/TextView"
-        app:layout_constraintEnd_toEndOf="@+id/btnArbol"
-        app:layout_constraintStart_toStartOf="@+id/btnArbol"
-        app:layout_constraintTop_toBottomOf="@+id/btnArbol" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnGastro"
-        android:text="Gastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        style="@style/MainButton"
-        app:layout_constraintEnd_toStartOf="@+id/btnArbol"
-        app:layout_constraintStart_toEndOf="@+id/btnMonumento"
-        app:layout_constraintTop_toBottomOf="@+id/textSubtitle" />
+            <Button
+                android:id="@+id/btnMonumento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/md_light_green_500"
+                android:text="Lugares"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textGastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txtGastro"
-        style="@style/TextView"
-        app:layout_constraintEnd_toEndOf="@+id/btnGastro"
-        app:layout_constraintStart_toStartOf="@id/btnGastro"
-        app:layout_constraintTop_toBottomOf="@id/btnGastro" />
+            <TextView
+                android:id="@+id/txtMonumento"
+                style="@style/TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtMonumento"
+                app:layout_constraintStart_toStartOf="@id/btnMonumento"
+                app:layout_constraintTop_toBottomOf="@id/btnMonumento" />
 
-    <TextView
-        android:id="@+id/textCalendario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Próximos eventos"
-        android:textSize="18sp"
-        android:layout_marginTop="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/textGastro"
-        app:layout_constraintStart_toStartOf="@+id/textGastro"
-        app:layout_constraintTop_toBottomOf="@+id/textGastro" />
+            <Button
+                android:id="@+id/btnArbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/md_light_green_500"
+                android:text="Natur"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtArbol"
+                style="@style/TextView"
+                android:layout_width="82sp"
+                android:layout_height="wrap_content"
+                android:text="@string/txtArbol"
+                app:layout_constraintEnd_toEndOf="@+id/btnArbol"
+                app:layout_constraintStart_toStartOf="@+id/btnArbol"
+                app:layout_constraintTop_toBottomOf="@+id/btnArbol" />
+
+            <Button
+                android:id="@+id/btnGastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/md_light_green_500"
+                android:text="Gastro"
+                app:layout_constraintEnd_toStartOf="@+id/btnArbol"
+                app:layout_constraintStart_toEndOf="@+id/btnMonumento"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textGastro"
+                style="@style/TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtGastro"
+                app:layout_constraintEnd_toEndOf="@+id/btnGastro"
+                app:layout_constraintStart_toStartOf="@id/btnGastro"
+                app:layout_constraintTop_toBottomOf="@id/btnGastro" />
+
+            <TextView
+                android:id="@+id/textTituloCalendario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25sp"
+                android:text="Próximos eventos"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="@+id/textGastro"
+                app:layout_constraintStart_toStartOf="@+id/textGastro"
+                app:layout_constraintTop_toBottomOf="@+id/textGastro" />
+
+            <LinearLayout
+                android:id="@+id/calendarioHeaderContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/calendarioEventos"
+                app:layout_constraintTop_toBottomOf="@+id/textTituloCalendario">
+
+                <Button
+                    android:id="@+id/btnMesPrevio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/md_green_50"
+                    android:text="&lt;"
+                    android:textColor="@color/md_green_900"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtCalendario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:textColor="@color/md_green_900"
+                    android:textSize="18sp"
+                    tools:text="Mayo 2025" />
+
+                <Button
+                    android:id="@+id/btnMesSiguiente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/md_green_50"
+                    android:text="&gt;"
+                    android:textColor="@color/md_green_900"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <com.kizitonwose.calendar.view.CalendarView
+                android:id="@+id/calendarioEventos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:cv_daySize="square"
+                app:cv_dayViewResource="@layout/calendar_day_layout"
+                app:cv_monthViewClass="@layout/calendar_month_header"
+                app:cv_orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendarioHeaderContenedor" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    </androidx.core.widget.NestedScrollView>
 
     <include
-        layout="@layout/bottom_navigation"
-        android:id="@+id/nav_main"/>
+        android:id="@+id/nav_main"
+        layout="@layout/bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

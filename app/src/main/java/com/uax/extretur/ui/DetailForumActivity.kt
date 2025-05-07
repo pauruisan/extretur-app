@@ -20,7 +20,7 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityDetailForumBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bundle = intent.extras
-        tema = bundle?.getSerializable("tema")!! as Forum
+        tema = bundle?.getSerializable("tema")!! as? Forum ?: throw IllegalArgumentException("No se ha recibido el tema")
 
         binding.btnDeleteTheme.setOnClickListener(this)
 
@@ -32,7 +32,7 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("¿Estás seguro de que quieres eliminar este tema?")
                     .setPositiveButton("Eliminar") { dialog, id ->
-                        db.collection("temas").document(tema.id).delete().addOnSuccessListener {
+                        db.collection("temas").document(tema?.uid.toString()).delete().addOnSuccessListener {
                             Toast.makeText(applicationContext, "Tema eliminado", Toast.LENGTH_SHORT).show()
                             finish()
                         }

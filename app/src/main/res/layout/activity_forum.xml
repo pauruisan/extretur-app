@@ -77,8 +77,6 @@
                 android:layout_height="60dp"
                 android:src="@drawable/add_box"
                 android:backgroundTint="@color/md_green_50"
-                android:clickable="true"
-                android:focusableInTouchMode="true"
                 android:contentDescription="Botón para añadir nuevo tema"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/txtTituloEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/md_green_50"
+        android:backgroundTint="@color/md_green_900"
+        android:layout_gravity="center"
+        tools:text="Título evento"/>
+
+    <TextView
+        android:id="@+id/txtUbicacionEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/md_green_50"
+        android:backgroundTint="@color/md_green_900"
+        android:layout_gravity="center"
+        tools:text="Ubicación"/>
+
+</LinearLayout>
