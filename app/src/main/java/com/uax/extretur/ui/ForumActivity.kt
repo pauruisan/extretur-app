@@ -40,6 +40,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
         binding = ActivityForumBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
+        Log.v("Usuario", auth.currentUser?.uid ?:  "sign login")
         acciones()
         instancias()
 

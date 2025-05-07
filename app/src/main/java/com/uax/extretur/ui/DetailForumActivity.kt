@@ -32,7 +32,7 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("¿Estás seguro de que quieres eliminar este tema?")
                     .setPositiveButton("Eliminar") { dialog, id ->
-                        db.collection("temas").document(tema.uid).delete().addOnSuccessListener {
+                        db.collection("temas").document(tema?.uid.toString()).delete().addOnSuccessListener {
                             Toast.makeText(applicationContext, "Tema eliminado", Toast.LENGTH_SHORT).show()
                             finish()
                         }
