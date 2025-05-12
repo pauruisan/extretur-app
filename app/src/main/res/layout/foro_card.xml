@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtForoDesc"
+            android:id="@+id/txtForoCreator"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="13sp"

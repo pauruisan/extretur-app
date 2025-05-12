@@ -19,7 +19,7 @@ class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) : 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val boton = itemView.findViewById<Button>(R.id.btnForoCard)
         val titulo = itemView.findViewById<TextView>(R.id.txtForoTitle)
-        val descripcion = itemView.findViewById<TextView>(R.id.txtForoDesc)
+        val creador = itemView.findViewById<TextView>(R.id.txtForoCreator)
         val fecha = itemView.findViewById<TextView>(R.id.txtForoDate)
     }
 
@@ -39,7 +39,7 @@ class AdaptadorForum(var listaForum: ArrayList<Forum>, var contexto: Context) : 
                 contexto.startActivity(intent)
         }
         holder.titulo.text = tema.titulo
-        holder.descripcion.text = tema.contenido
+        holder.creador.text = tema.creador
         holder.fecha.text = tema.fecha
     }
 

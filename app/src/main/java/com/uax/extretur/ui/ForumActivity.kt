@@ -21,6 +21,7 @@ import com.uax.extretur.databinding.ActivityForumBinding
 import com.uax.extretur.model.Forum
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.uax.extretur.databinding.DialogNewThemeBinding
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -49,6 +50,8 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId) {
                     binding.navForum.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
 
@@ -83,6 +86,8 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                 }
             }
         })
+
+        cargarTemas()
 
     }
 
@@ -123,7 +128,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
 
     override fun onShow(dialog: DialogInterface?) {
         val btnPublicar =
-            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) //TODO: crear btn cancelar y volver atrás.
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
         btnPublicar.isEnabled = false
 
 
@@ -153,7 +158,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                 titulo = titulo,
                 contenido = contenido,
                 fecha = formatoFecha.format(Date()),
-                creador = auth.currentUser?.displayName
+                creador = auth.currentUser?.email
                     ?: "Anónimo",
                 tema = temaSeleccionado
             )
@@ -163,7 +168,12 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                     listaForum.add(forum)
                     adaptadorForum.notifyItemInserted(listaForum.size - 1)
 
+
                     val intent = Intent(applicationContext, DetailForumActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putSerializable("tema", forum)
+                    intent.putExtras(bundle)
+                    Toast.makeText(applicationContext, "Tema creado correctamente", Toast.LENGTH_SHORT).show()
                     startActivity(intent)
                     alertDialog.dismiss()
                 }
@@ -177,5 +187,21 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                     ).show()
                 }
         }
+    }
+
+    private fun cargarTemas() {
+        db.collection("temas").orderBy("fecha", Query.Direction.ASCENDING).get().addOnSuccessListener { result ->
+            listaForum.clear()
+            for (doc in result) {
+                val tema = doc.toObject(Forum::class.java)
+                tema.uid = doc.id
+                listaForum.add(tema)
+            }
+            adaptadorForum.notifyDataSetChanged()
+        }
+            .addOnFailureListener { e ->
+                Log.e("FirestoreError", "Error al cargar los temas", e)
+                Toast.makeText(this, "Error al cargar los temas", Toast.LENGTH_LONG).show()
+            }
     }
 }

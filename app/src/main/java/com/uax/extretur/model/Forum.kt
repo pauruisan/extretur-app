@@ -8,5 +8,4 @@ data class Forum (
     var contenido: String ?= null,
     var fecha: String ?= null,
     var tema: String ?= null,
-    var creador: String ?= null) : Serializable {
-}
+    var creador: String ?= null) : Serializable
