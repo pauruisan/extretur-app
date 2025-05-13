@@ -32,12 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnMonumento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
-                android:text="Lugares"
+                android:src="@drawable/fort_24px"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,12 +50,12 @@
                 app:layout_constraintStart_toStartOf="@id/btnMonumento"
                 app:layout_constraintTop_toBottomOf="@id/btnMonumento" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnArbol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
-                android:text="Natur"
+                android:src="@drawable/forest_24px"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,12 +69,12 @@
                 app:layout_constraintStart_toStartOf="@+id/btnArbol"
                 app:layout_constraintTop_toBottomOf="@+id/btnArbol" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnGastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
-                android:text="Gastro"
+                android:src="@drawable/chef_hat_24px"
                 app:layout_constraintEnd_toStartOf="@+id/btnArbol"
                 app:layout_constraintStart_toEndOf="@+id/btnMonumento"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
                 android:id="@+id/textTituloCalendario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25sp"
+                android:layout_marginTop="20sp"
                 android:text="Próximos eventos"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="@+id/textGastro"
@@ -104,7 +104,7 @@
                 android:id="@+id/calendarioHeaderContenedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:elevation="5dp"
                 android:gravity="center"
                 android:orientation="horizontal"
