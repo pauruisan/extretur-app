@@ -30,6 +30,8 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navProfile.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
                     binding.navProfile.navLayout.menu.findItem(R.id.foro).itemId -> {
@@ -56,8 +58,6 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
                         }
                         true
                     }
-                    //TODO: terminar de completar los intents
-
                     else -> false
                 }
             }

@@ -46,6 +46,9 @@ class LogInActivity : AppCompatActivity() {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navLogIn.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                         true
                     }
                     binding.navLogIn.navLayout.menu.findItem(R.id.foro).itemId -> {

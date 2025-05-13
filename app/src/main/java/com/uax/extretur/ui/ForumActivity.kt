@@ -52,6 +52,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                     binding.navForum.navLayout.menu.findItem(R.id.inicio).itemId -> {
                         val intent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(intent)
+                        finish()
                         true
                     }
 

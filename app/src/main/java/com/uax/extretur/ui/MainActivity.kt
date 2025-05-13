@@ -75,8 +75,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                         }
                         true
                     }
-                    //TODO: terminar de completar los intents
-
                     else -> false
                 }
             }

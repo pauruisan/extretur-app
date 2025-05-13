@@ -33,6 +33,8 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId){
                     binding.navNatur.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
                     binding.navNatur.navLayout.menu.findItem(R.id.foro).itemId -> {
@@ -59,8 +61,6 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
                         }
                         true
                     }
-                    //TODO: terminar de completar los intents
-
                     else -> false
                 }
             }

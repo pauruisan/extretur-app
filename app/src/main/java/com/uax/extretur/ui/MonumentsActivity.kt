@@ -33,6 +33,8 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId) {
                     binding.navMonuments.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
                     binding.navMonuments.navLayout.menu.findItem(R.id.foro).itemId -> {

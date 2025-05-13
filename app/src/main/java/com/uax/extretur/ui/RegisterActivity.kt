@@ -37,6 +37,8 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return when (item.itemId) {
                     binding.navRegister.navLayout.menu.findItem(R.id.inicio).itemId -> {
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
 
@@ -65,8 +67,6 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                         }
                         true
                     }
-                    //TODO: terminar de completar los intents
-
                     else -> false
                 }
             }
@@ -133,7 +133,7 @@ class RegisterActivity : AppCompatActivity(), OnClickListener {
                                             startActivity(intent)
                                             finish()
                                         } else {
-                                            Toast.makeText(this@RegisterActivity, "Inicio de sesión incorrecto: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(this@RegisterActivity, "Registro incorrecto, vuelve a intentarlo más tarde", Toast.LENGTH_SHORT).show()
                                         }}}}
 
                         override fun onCancelled(error: DatabaseError) {
