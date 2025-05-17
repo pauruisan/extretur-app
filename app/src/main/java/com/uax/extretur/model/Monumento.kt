@@ -1,4 +1,6 @@
 package com.uax.extretur.model
 
-class Monumento (var nombre: String, var descripcion: String, var provincia: String, var imagen: Int){
-}
+import java.io.Serializable
+
+data class Monumento (var nombre: String, var descripcion: String, var poblacion:String, var provincia: String, var imagen: String,
+    val latitud: Double, val longitud: Double) : Serializable

@@ -30,33 +30,22 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Título"
-            android:textSize="20sp"
+            tools:text="Título"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/monumentImg"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtMonumentDesc"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Descripción del monumento"
-            android:layout_marginTop="3sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/monumentImg"
-            app:layout_constraintTop_toBottomOf="@+id/txtMonumentTitle" />
 
         <Button
             android:id="@+id/btnMonumentCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ver más..."
             android:backgroundTint="@color/md_green_500"
+            android:text="Ver más..."
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txtMonumentDesc"
-            app:layout_constraintStart_toStartOf="@+id/txtMonumentDesc"
-            app:layout_constraintTop_toBottomOf="@+id/txtMonumentDesc" />
+            app:layout_constraintEnd_toEndOf="@+id/txtMonumentTitle"
+            app:layout_constraintStart_toStartOf="@+id/txtMonumentTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtMonumentTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

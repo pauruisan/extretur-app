@@ -1,6 +1,8 @@
 package com.uax.extretur.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,21 +10,20 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.uax.extretur.R
 import com.uax.extretur.model.Monumento
+import com.uax.extretur.ui.DetailMonumentsActivity
 
 class AdaptadorMonumentos (var listaMonumentos: ArrayList<Monumento>, var contexto: Context) : RecyclerView.Adapter<AdaptadorMonumentos.MyHolder>() {
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //saco cada uno de los elementos q hay dentro del xml (patron de la fila)
         val imagen = itemView.findViewById<ImageView>(R.id.monumentImg)
         val boton = itemView.findViewById<Button>(R.id.btnMonumentCard)
         val titulo = itemView.findViewById<TextView>(R.id.txtMonumentTitle)
-        val descripcion = itemView.findViewById<TextView>(R.id.txtMonumentDesc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        //Crear el patron de las filas
         val vista = LayoutInflater.from(contexto).inflate(R.layout.monument_card, parent, false)
         val holder: MyHolder = MyHolder(vista)
         return holder
@@ -36,13 +37,20 @@ class AdaptadorMonumentos (var listaMonumentos: ArrayList<Monumento>, var contex
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         //Me dice como se comporta cada fila
         val monumento = listaMonumentos[position]
-        holder.imagen.setImageResource(monumento.imagen)
-        holder.boton
+        Glide.with(contexto).load(monumento.imagen).placeholder(R.drawable.fort_24px).error(R.drawable.fort_24px).into(holder.imagen)
+        holder.boton.setOnClickListener {
+            val intent = Intent(contexto, DetailMonumentsActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val bundle = Bundle()
+            bundle.putSerializable("monumento", monumento)
+            intent.putExtra("datos", bundle)
+            contexto.startActivity(intent)
+        }
         holder.titulo.text = monumento.nombre
-        holder.descripcion.text = monumento.descripcion
+
     }
 
-    public fun actualizarLista(listaFiltrada: ArrayList<Monumento>){
+    fun actualizarLista(listaFiltrada: ArrayList<Monumento>){
         this.listaMonumentos = listaFiltrada
         notifyDataSetChanged()
     }
