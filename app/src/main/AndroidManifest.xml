@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ExtreTur"
         tools:targetApi="31">
         <activity
+            android:name=".ui.DetailNaturActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.DetailMonumentsActivity"
             android:exported="false" />
         <activity

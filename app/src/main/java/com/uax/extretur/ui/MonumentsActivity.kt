@@ -235,9 +235,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
         } else if (resources.configuration.orientation == 2) {
             binding.monumentCards.layoutManager = GridLayoutManager(this, 2)
         }
-
         binding.monumentCards.adapter = adaptadorMonumentos
-
     }
 
     private fun acciones() {

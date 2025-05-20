@@ -1,15 +1,22 @@
 package com.uax.extretur.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.uax.extretur.R
 import com.uax.extretur.model.Natur
+import com.uax.extretur.ui.DetailMonumentsActivity
+import com.uax.extretur.ui.DetailNaturActivity
 
 class AdaptadorNatur(var listaNatur: ArrayList<Natur>, var contexto: Context) : RecyclerView.Adapter<AdaptadorNatur.MyHolder>() {
 
@@ -28,10 +35,17 @@ class AdaptadorNatur(var listaNatur: ArrayList<Natur>, var contexto: Context) : 
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val actividad = listaNatur[position]
-        holder.imagen.setImageResource(actividad.imagen)
-        holder.boton
+        Glide.with(contexto).load(actividad.imagen).placeholder(R.drawable.forest_24px).error(R.drawable.forest_24px).into(holder.imagen)
+        holder.boton.setOnClickListener {
+            val intent = Intent(contexto, DetailNaturActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val bundle = Bundle()
+            bundle.putSerializable("actividad", actividad)
+            intent.putExtra("datos", bundle)
+            contexto.startActivity(intent)
+        }
+
         holder.titulo.text = actividad.nombre
-        holder.descripcion.text = actividad.descripcion
     }
 
 
