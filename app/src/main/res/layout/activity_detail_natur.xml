@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailNaturActivity">
+
+    <TextView
+        android:id="@+id/txtNaturTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/md_green_500"
+        android:textAlignment="center"
+        android:textSize="38sp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Titulo de la actividad" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNaturTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/naturContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgMonument"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="35sp"
+                android:layout_marginStart="20sp"
+                android:contentDescription="Imágenes del monumento seleccionado"
+                android:src="@drawable/forest_24px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTipoDificultad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10sp"
+                android:text="Dificultad:"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/txtDificultad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtDificultad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Baja" />
+
+            <TextView
+                android:id="@+id/txtTipoZona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:text="Zona:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/txtTipoDificultad"
+                app:layout_constraintTop_toBottomOf="@+id/txtTipoDificultad" />
+
+            <TextView
+                android:id="@+id/txtZona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtTipoZona"
+                app:layout_constraintTop_toBottomOf="@+id/txtDificultad"
+                tools:text="Badajoz" />
+
+            <TextView
+                android:id="@+id/txtNaturDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgMonument"
+                tools:text="Contenido/ descripción de la actividad" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
