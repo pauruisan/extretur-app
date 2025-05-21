@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         auth = FirebaseAuth.getInstance()
         setUpCalendar()
+        acciones()
 
         binding.navMain.navLayout.setOnItemSelectedListener(object :
             NavigationBarView.OnItemSelectedListener {
@@ -75,12 +76,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                         }
                         true
                     }
+
                     else -> false
                 }
             }
         })
 
-        acciones()
 
     }
 
@@ -105,10 +106,30 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding.calendarioEventos.scrollToMonth(YearMonth.from(today))
 
         val eventos = listOf(
-            Evento(LocalDate.of(2025, 5, 15), "San Isidro", "Fuente de Cantos"),
+            Evento(LocalDate.of(2025, 1, 19), "Jarramplas", "Piornal"),
+            Evento(LocalDate.of(2025, 1, 20), "Jarramplas", "Piornal"),
+            Evento(LocalDate.of(2025, 1, 21), "Las Carantoñas", "Acehúche"),
+            Evento(LocalDate.of(2025, 2, 2), "Las Candelas", "Almendralejo"),
+            Evento(LocalDate.of(2025, 3, 4), "Carnaval", "Badajoz"),
+            Evento(LocalDate.of(2025, 3, 15), "Empieza:\n Fiesta del Cerezo en Flor", "Valle del Jerte"),
+            Evento(LocalDate.of(2025, 4, 13), "Empieza: Semana Santa", "Jerez de los Caballeros,\nMérida, Cáceres, Badajoz"),
+            Evento(LocalDate.of(2025, 4, 17), "La Pasión Viviente", "Oliva de la Frontera"),
+            Evento(LocalDate.of(2025, 4, 21), "Las Carreras", "Arroyo de la Luz"),
             Evento(LocalDate.of(2025, 4, 26), "Chanfaina", "Fuente de Cantos"),
+            Evento(LocalDate.of(2025, 5, 15), "Romería de San Isidro", "Fuente de Cantos"),
             Evento(LocalDate.of(2025, 5, 22), "Emérita Lvdica", "Mérida"),
-            Evento(LocalDate.of(2025, 4, 26), "Chanfaina", "Fuente de Cantos")
+            Evento(LocalDate.of(2025, 6, 7), "Los Palomos", "Badajoz"),
+            Evento(LocalDate.of(2025, 6, 19), "Octava del Corpus", "Peñalsordo"),
+            Evento(LocalDate.of(2025, 6, 23), "Empieza:\n Sanjuanes", "Coria"),
+            Evento(LocalDate.of(2025, 6, 29), "Termina\n Sanjuanes", "Coria"),
+            Evento(LocalDate.of(2025, 8, 2), "Boda Regia", "Valencia de Alcántara"),
+            Evento(LocalDate.of(2025, 8, 5), "Martes Mayor", "Plasencia"),
+            Evento(LocalDate.of(2025, 9, 27), "Almossasa Batalyaws", "Badajoz"),
+            Evento(LocalDate.of(2025, 9, 6), "Día del Jamón", "Monesterio"),
+            Evento(LocalDate.of(2025, 9, 13), "Las Capeas", "Segura de León"),
+            Evento(LocalDate.of(2025, 10, 31), "Empieza:\n Otoño Mágico", "Valle del Ambroz"),
+            Evento(LocalDate.of(2025, 11, 30), "Termina:\n Otoño Mágico", "Valle del Ambroz"),
+            Evento(LocalDate.of(2025, 12, 7), "La Encamisá", "Torrejoncillo"),
         )
 
         fun updateMonthHeader(month: YearMonth) {
@@ -174,7 +195,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         popupView.txtTituloEvento.text = evento?.titulo
         popupView.txtUbicacionEvento.text = evento?.localizacion
 
-        val popupWindow = PopupWindow(popupView.root, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true)
+        val popupWindow = PopupWindow(
+            popupView.root,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
         popupWindow.elevation = 10f
         popupWindow.showAsDropDown(anchor)
     }
