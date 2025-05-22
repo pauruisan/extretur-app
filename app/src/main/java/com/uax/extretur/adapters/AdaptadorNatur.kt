@@ -41,6 +41,7 @@ class AdaptadorNatur(var listaNatur: ArrayList<Natur>, var contexto: Context) : 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val bundle = Bundle()
             bundle.putSerializable("actividad", actividad)
+            bundle.putString("imagen", actividad.imagen)
             intent.putExtra("datos", bundle)
             contexto.startActivity(intent)
         }

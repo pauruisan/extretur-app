@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityDetailNaturBinding
 import com.uax.extretur.model.Monumento
@@ -24,6 +25,12 @@ class DetailNaturActivity : AppCompatActivity() {
         binding.txtNaturDesc.text = actividad.descripcion
 
         binding.txtDificultad.text = actividad.dificultad
+        binding.txtZona.text = actividad.zona
+        Glide.with(this)
+            .load(actividad.imagen)
+            .placeholder(R.drawable.forest_24px)
+            .error(R.drawable.forest_24px)
+            .into(binding.imgNatur)
 
         }
     }
