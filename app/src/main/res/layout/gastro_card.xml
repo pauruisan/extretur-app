@@ -36,27 +36,16 @@
             app:layout_constraintStart_toEndOf="@+id/gastroImg"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txtGastroDesc"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Descripción del monumento"
-            android:layout_marginTop="3sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/gastroImg"
-            app:layout_constraintTop_toBottomOf="@+id/txtGastroTitle" />
-
         <Button
             android:id="@+id/btnGastroCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ver más..."
             android:backgroundTint="@color/md_green_500"
+            android:text="Ver más..."
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txtGastroDesc"
-            app:layout_constraintStart_toStartOf="@+id/txtGastroDesc"
-            app:layout_constraintTop_toBottomOf="@+id/txtGastroDesc" />
+            app:layout_constraintEnd_toEndOf="@+id/txtGastroTitle"
+            app:layout_constraintStart_toStartOf="@+id/txtGastroTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtGastroTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

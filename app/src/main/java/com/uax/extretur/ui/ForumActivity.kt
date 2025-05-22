@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.uax.extretur.databinding.DialogNewThemeBinding
+import com.uax.extretur.model.Gastro
+import com.uax.extretur.ui.GastroActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -97,6 +99,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
 
     private fun instancias() {
         listaForum = arrayListOf()
+        listaForum.sortBy { it.fecha }
         adaptadorForum = AdaptadorForum(listaForum, this)
 
         if (resources.configuration.orientation == 1) {
@@ -112,6 +115,23 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
 
     private fun acciones() {
         binding.btnAddTheme.setOnClickListener(this)
+
+        binding.editSearchForum.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val textoBuscado = s.toString().lowercase()
+                val listaFiltrada: ArrayList<Forum> = listaForum.filter {
+                    it.titulo!!.lowercase().contains(textoBuscado) || it.creador?.lowercase()!!.contains(textoBuscado)
+                }.sortedBy { it.fecha }.toCollection(ArrayList())
+                if (listaFiltrada.isEmpty()){
+                    Toast.makeText(this@ForumActivity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                }
+                adaptadorForum.actualizarLista(listaFiltrada)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     override fun onClick(v: View?) {
