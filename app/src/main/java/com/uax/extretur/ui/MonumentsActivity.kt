@@ -2,10 +2,13 @@ package com.uax.extretur.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorMonumentos
 import com.uax.extretur.databinding.ActivityMonumentsBinding
+import com.uax.extretur.model.Gastro
 import com.uax.extretur.model.Monumento
+import com.uax.extretur.ui.GastroActivity
 
 class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
     private lateinit var binding: ActivityMonumentsBinding
@@ -226,7 +231,7 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
                 "https://www.turismobadajoz.es/wp-content/uploads/2020/09/PLAZA-ALTA-BADAJOZ-1024x684.jpg", 38.878820284926014, -6.969703360032985
             )
         )
-
+        listaMonumentos.sortBy { it.nombre }
         adaptadorMonumentos = AdaptadorMonumentos(listaMonumentos, this)
 
         if (resources.configuration.orientation == 1) {
@@ -239,7 +244,23 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
     }
 
     private fun acciones() {
+        binding.editSearchMonument.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val textoBuscado = s.toString().lowercase()
+                val listaFiltrada: ArrayList<Monumento> = listaMonumentos.filter {
+                    it.nombre.lowercase().contains(textoBuscado) || it.descripcion.lowercase()
+                        .contains(textoBuscado)
+                }.sortedBy { it.nombre }.toCollection(ArrayList())
+                if (listaFiltrada.isEmpty()){
+                    Toast.makeText(this@MonumentsActivity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                }
+                adaptadorMonumentos.actualizarLista(listaFiltrada)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

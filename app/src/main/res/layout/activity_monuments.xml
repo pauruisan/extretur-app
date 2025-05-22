@@ -22,7 +22,7 @@
 
     <EditText
         android:id="@+id/editSearchMonument"
-        android:layout_width="210sp"
+        android:layout_width="230sp"
         android:layout_height="50sp"
         android:hint="Escribe un lugar aquí..."
         android:inputType="text"
@@ -30,23 +30,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgTitleMonument" />
 
-    <Button
-        android:id="@+id/btnSearchMonument"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/md_green_500"
-        android:text="Buscar"
-        android:layout_marginTop="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editSearchMonument"
-        app:layout_constraintTop_toBottomOf="@+id/imgTitleMonument"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/monumentCards"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSearchMonument"
