@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityDetailMonumentsBinding
 import com.uax.extretur.model.Monumento
@@ -24,7 +25,10 @@ class DetailMonumentsActivity : AppCompatActivity() {
         val poblacion = monumento.poblacion
         binding.txtPoblacion.text = "$poblacion,"
         binding.txtProvincia.text = monumento.provincia
-
-
+        Glide.with(this)
+            .load(monumento.imagen)
+            .placeholder(R.drawable.fort_24px)
+            .error(R.drawable.fort_24px)
+            .into(binding.imgMonument)
     }
 }

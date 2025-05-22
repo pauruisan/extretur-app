@@ -79,20 +79,20 @@ class MonumentsActivity : AppCompatActivity(), OnItemSelectedListener {
         listaMonumentos = arrayListOf(
             Monumento(
                 "Acueducto Los Milagros",
-                "Acueducto romano en Mérida",
+                "Increíblemente se conservan hoy en día más de 800 metros de este acueducto, que llevaba el agua a la ciudad desde el embalse de Proserpina. Se construyó a finales del siglo I d.C. y el original tenía más de 10 km de longitud.\n" +
+                        "Conocido popularmente como el acueducto de Los Milagros tenía una altura de hasta 25 metros, en su parte más alta, la zona central que es donde estaba situado el cauce del río Albarregas." +
+                        "\n La visita es libre y gratuita.",
                 "Mérida",
                 "Badajoz",
-                "https://turismomerida.org/assets/uploads/2018/01/acueducto-milagros02.jpg", 0.0, 0.0
+                "https://www.turismobadajoz.es/wp-content/uploads/2019/07/Acueducto-Romano-Merida.jpg", 0.0, 0.0
             ),
             Monumento(
                 "Monasterio de Tentudía",
                 "En un cerro de la Sierra de Tentudía, a 9km de Calera de León al sur de Badajoz, se encuentra el Monasterio de Tentudía, una excelente visita para aquellos que quieran disfrutar de uno de los mejores exponentes del arte mudéjar español.\n" +
-                        "\n" +
                         "Además, este templo dedicado a Santa María de Tentudía está rodeado de hermosos parajes naturales que quitarán el aliento a cualquiera.El origen de este monasterio del siglo XIII está relacionado con una curiosa leyenda. Durante una batalla contra los árabes, el Capitán Pelay Pérez Correa, maestre de la Orden de Santiago, al ver que caía la noche y la victoria no llegaba, pidió a la Virgen: “Santa María, detén tu día”.Cuenta la leyenda que, ante la petición del capitán, el sol se detuvo en el horizonte, alargando el día hasta que los cristianos obtuvieron la victoria. El maestre Pérez Correa, en agradecimiento a la Virgen, mandó a construir una ermita dedicada a Santa María de Tudía o Tentudía.\n" +
-                        "\n" +
                         "Esta ermita hecha de piedra y mampuesto, fue ampliada desde entonces en varias ocasiones por los miembros de la Orden de Santiago. Posteriormente, con la construcción del Conventual en Calera de León, la zona adquirió mayor relevancia, convirtiéndose en uno de los principales centros de los santiaguistas.",
                 "Calera de León","Badajoz",
-                "https://i.postimg.cc/D8fG8XcD/tentudia.jpg" , 38.05438116195432, -6.338450641858771
+                "https://www.turismobadajoz.es/wp-content/uploads/2020/07/monasterio-de-tentudia-9.jpg" , 38.05438116195432, -6.338450641858771
             ),
             Monumento(
                 "Capilla sixtina extremeña",

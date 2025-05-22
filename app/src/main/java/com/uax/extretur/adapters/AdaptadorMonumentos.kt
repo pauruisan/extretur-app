@@ -43,6 +43,7 @@ class AdaptadorMonumentos (var listaMonumentos: ArrayList<Monumento>, var contex
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val bundle = Bundle()
             bundle.putSerializable("monumento", monumento)
+            bundle.putString("imagen", monumento.imagen)
             intent.putExtra("datos", bundle)
             contexto.startActivity(intent)
         }
