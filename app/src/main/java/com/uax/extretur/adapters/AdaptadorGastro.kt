@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.uax.extretur.R
 import com.uax.extretur.model.Gastro
+import com.uax.extretur.ui.DetailGastroActivity
 import com.uax.extretur.ui.DetailMonumentsActivity
 
 class AdaptadorGastro(var listaGastro: ArrayList<Gastro>, private var contexto: Context) :
@@ -22,7 +23,6 @@ class AdaptadorGastro(var listaGastro: ArrayList<Gastro>, private var contexto: 
         val imagen = itemView.findViewById<ImageView>(R.id.gastroImg)
         val boton = itemView.findViewById<Button>(R.id.btnGastroCard)
         val titulo = itemView.findViewById<TextView>(R.id.txtGastroTitle)
-        val descripcion = itemView.findViewById<TextView>(R.id.txtGastroDesc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -35,15 +35,15 @@ class AdaptadorGastro(var listaGastro: ArrayList<Gastro>, private var contexto: 
         val plato = listaGastro[position]
         Glide.with(contexto).load(plato.imagen).placeholder(R.drawable.chef_hat_24px).error(R.drawable.chef_hat_24px).into(holder.imagen)
         holder.boton.setOnClickListener {
-            val intent = Intent(contexto, DetailMonumentsActivity::class.java)
+            val intent = Intent(contexto, DetailGastroActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val bundle = Bundle()
             bundle.putSerializable("plato", plato)
+            bundle.putString("imagen", plato.imagen)
             intent.putExtra("datos", bundle)
             contexto.startActivity(intent)
         }
         holder.titulo.text = plato.nombre
-        holder.descripcion.text = plato.descripcion
     }
 
 

@@ -38,7 +38,7 @@
 
             <ImageView
                 android:id="@+id/imgGastro"
-                android:layout_width="200sp"
+                android:layout_width="match_parent"
                 android:layout_height="200sp"
                 android:contentDescription="Imágenes del monumento seleccionado"
                 android:src="@drawable/chef_hat_24px"
@@ -56,6 +56,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgGastro"
                 tools:text="Contenido/ descripción del monumento"
+                android:layout_marginTop="10sp"
                 android:layout_marginBottom="18sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
