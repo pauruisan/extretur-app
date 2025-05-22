@@ -2,10 +2,13 @@ package com.uax.extretur.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorNatur
 import com.uax.extretur.databinding.ActivityNaturBinding
+import com.uax.extretur.model.Gastro
 import com.uax.extretur.model.Natur
+import com.uax.extretur.ui.GastroActivity
 
 class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
 
@@ -147,7 +152,7 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
             )
         )
 
-
+        listaNatur.sortBy { it.nombre }
         adaptadorNatur = AdaptadorNatur(listaNatur, this)
 
         if (resources.configuration.orientation == 1) {
@@ -162,7 +167,23 @@ class NaturActivity : AppCompatActivity(), OnItemSelectedListener {
     }
 
     private fun acciones() {
+        binding.editSearchNatur.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val textoBuscado = s.toString().lowercase()
+                val listaFiltrada: ArrayList<Natur> = listaNatur.filter {
+                    it.nombre.lowercase().contains(textoBuscado) || it.descripcion.lowercase()
+                        .contains(textoBuscado)
+                }.sortedBy { it.nombre }.toCollection(ArrayList())
+                if (listaFiltrada.isEmpty()){
+                    Toast.makeText(this@NaturActivity, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                }
+                adaptadorNatur.actualizarLista(listaFiltrada)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
