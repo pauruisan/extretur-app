@@ -12,34 +12,34 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="30dp"
+        android:backgroundTint="@color/md_green_50"
         android:contentDescription="Imagen del perfil del usuario"
         android:src="@drawable/account_circle"
-        android:backgroundTint="@color/md_green_50"
-        tools:text="Nombre Apellidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nombre Apellidos" />
 
     <TextView
         android:id="@+id/txtNombrePerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Nombre Apellidos"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintStart_toStartOf="@+id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        tools:text="Nombre Apellidos" />
 
     <TextView
         android:id="@+id/txtCorreoPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        tools:text="nombre@correo.com"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintStart_toStartOf="@+id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombrePerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombrePerfil"
+        tools:text="nombre@correo.com" />
 
     <ScrollView
         android:id="@+id/scrollProfile"
@@ -98,7 +98,6 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline4"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline4"
                     android:layout_width="wrap_content"
@@ -154,7 +153,7 @@
 
             <TextView
                 android:id="@+id/txtAboutApp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
@@ -164,8 +163,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
 
             <TextView
+                android:id="@+id/txtAboutAppArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:text=">"
+                android:padding="8sp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
+
+            <TextView
                 android:id="@+id/txtTerms"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
@@ -175,8 +185,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtAboutApp" />
 
             <TextView
+                android:id="@+id/txtTermsArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:padding="8sp"
+                android:text=">"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/txtAboutAppArrow" />
+
+            <TextView
                 android:id="@+id/txtPrivacy"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
@@ -184,6 +205,17 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtTerms" />
+
+            <TextView
+                android:id="@+id/txtPrivacyArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:padding="8sp"
+                android:text=">"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/txtTermsArrow" />
 
 
             <TextView
@@ -209,6 +241,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtShare" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -219,6 +258,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
