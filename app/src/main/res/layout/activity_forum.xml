@@ -43,24 +43,15 @@
 
             <EditText
                 android:id="@+id/editSearchForum"
-                android:layout_width="180sp"
+                android:layout_width="240sp"
                 android:layout_height="50sp"
-                android:hint="Escribe aquí"
                 android:layout_marginTop="15sp"
+                android:layout_marginStart="20sp"
+                android:hint="Escribe aquí para buscar..."
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardForum" />
 
-            <Button
-                android:id="@+id/btnSearchForum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:backgroundTint="#86B85C"
-                android:text="Buscar"
-                app:layout_constraintEnd_toStartOf="@+id/btnAddTheme"
-                app:layout_constraintStart_toEndOf="@+id/editSearchForum"
-                app:layout_constraintTop_toBottomOf="@+id/cardForum" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/foroCards"
@@ -73,12 +64,13 @@
 
             <ImageButton
                 android:id="@+id/btnAddTheme"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="15sp"
+                android:layout_marginEnd="20sp"
                 android:backgroundTint="@color/md_green_50"
                 android:contentDescription="Botón para añadir nuevo tema"
-                android:src="@drawable/add_box"
+                android:src="@drawable/add_circle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardForum" />
 
