@@ -35,12 +35,12 @@ El objetivo principal de la aplicación es que permita descubrir y consultar inf
 ---
 ## :art: Colores de referencia
 
-| Color               | Código HEX | Nombre en app       | Muestra         |
-|--------------------|------------|---------------------|-----------------|
-| Verde claro        | `#F1F8E9`  | md_green_50         | <div style="width:20px;height:20px;background:#F1F8E9;border:1px solid #ccc;"></div> |
-| Verde principal    | `#86B85C`  | Personalizado       | <div style="width:20px;height:20px;background:#86B85C;border:1px solid #ccc;"></div> |
-| Verde medio        | `#8BC34A`  | md_green_500        | <div style="width:20px;height:20px;background:#8BC34A;border:1px solid #ccc;"></div> |
-| Verde oscuro       | `#689F38`  | md_green_700   | <div style="width:20px;height:20px;background:#689F38;border:1px solid #ccc;"></div> |
+| Color               | Código HEX | Nombre en app       
+|--------------------|------------|---------------------|
+| Verde claro        | `#F1F8E9`  | md_green_50         |
+| Verde principal    | `#86B85C`  | Personalizado       |
+| Verde medio        | `#8BC34A`  | md_green_500        |
+| Verde oscuro       | `#689F38`  | md_green_700   |
 
 ---
 
