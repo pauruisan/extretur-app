@@ -26,10 +26,10 @@ class LogInActivity : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
                     Toast.makeText(this, "Bienvenido/a de nuevo, ${auth.currentUser?.displayName}", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, "Inicio de sesión incorrecto: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

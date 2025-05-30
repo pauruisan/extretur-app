@@ -4,6 +4,19 @@
     <string name="txtMonumento">Lugares de interés</string>
     <string name="txtArbol">Naturaleza y actividades</string>
     <string name="txtGastro">Gastronomía</string>
+    <string name="txtCalendario">Próximos eventos</string>
+    <string name="buscarMonumento">Escribe un lugar aquí &#8230;</string>
+    <string name="buscarPlato">Escribe un plato aquí &#8230;</string>
+    <string name="buscarActividad">Escribe una actividad aquí &#8230;</string>
+    <string name="buscarTema">Escribe un tema aquí &#8230;</string>
+    <string name="insertarComentario">Escribe aquí un comentario &#8230;</string>
+    <string name="btnInsert">Añadir</string>
+    <string name="btnEliminar">Eliminar tema</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="email">INTRODUCE TU CORREO ELECTRÓNICO</string>
+    <string name="pass">INTRODUCE TU CONTRASEÑA</string>
+    <string name="forgotpass">¿Olvidaste tu contraseña?</string>
 
     <string-array name="idiomas">
         <item>Español</item>

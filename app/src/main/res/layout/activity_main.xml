@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/textTitle"
         android:layout_width="0sp"
-        android:layout_height="145sp"
+        android:layout_height="125sp"
         android:contentDescription="Título de la app"
         android:scaleType="centerCrop"
         android:src="@drawable/logo3"
@@ -38,6 +38,8 @@
                 android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
                 android:src="@drawable/fort_24px"
+                android:contentDescription="Imagen del botón de lugares de interés"
+                android:layout_marginStart="8sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,18 +57,20 @@
                 android:layout_width="65dp"
                 android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
+                android:contentDescription="Imagen del botón de actividades"
                 android:src="@drawable/forest_24px"
+                android:layout_marginEnd="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtArbol"
                 style="@style/TextView"
-                android:layout_width="82sp"
+                android:layout_width="99sp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="2sp"
                 android:text="@string/txtArbol"
-                app:layout_constraintEnd_toEndOf="@+id/btnArbol"
-                app:layout_constraintStart_toStartOf="@+id/btnArbol"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnArbol" />
 
             <ImageButton
@@ -75,6 +79,7 @@
                 android:layout_height="60dp"
                 android:backgroundTint="@color/md_light_green_500"
                 android:src="@drawable/chef_hat_24px"
+                android:contentDescription="Imagen del botón de gastronomía"
                 app:layout_constraintEnd_toStartOf="@+id/btnArbol"
                 app:layout_constraintStart_toEndOf="@+id/btnMonumento"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -94,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="Próximos eventos"
+                android:text="@string/txtCalendario"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="@+id/textGastro"
                 app:layout_constraintStart_toStartOf="@+id/textGastro"

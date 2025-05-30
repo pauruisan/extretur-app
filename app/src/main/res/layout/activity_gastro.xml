@@ -24,23 +24,11 @@
         android:id="@+id/editSearchGastro"
         android:layout_width="230sp"
         android:layout_height="50sp"
-        android:hint="Busca una actividad aquí..."
+        android:hint="@string/buscarPlato"
         android:inputType="text"
         android:layout_marginTop="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgTitleGastro" />
-
-    <Button
-        android:id="@+id/btnSearchGastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/md_green_500"
-        android:text="Buscar"
-        android:layout_marginTop="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editSearchGastro"
-        app:layout_constraintTop_toBottomOf="@+id/imgTitleGastro"
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gastroCards"

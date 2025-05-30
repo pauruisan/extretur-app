@@ -25,6 +25,7 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailForumBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         listaComentarios = arrayListOf()
 
         val bundle = intent.extras
@@ -37,11 +38,13 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
         listaComentarios.add(comentario)
         binding.txtThemeComments.text = listaComentarios.joinToString("\n") as CharSequence?
 
+        acciones()
+        cargarComentarios()
+    }
+
+    private fun acciones (){
         binding.btnDeleteTheme.setOnClickListener(this)
         binding.btnInsertComment.setOnClickListener(this)
-        cargarComentarios()
-
-
     }
 
     override fun onClick(v: View?) {

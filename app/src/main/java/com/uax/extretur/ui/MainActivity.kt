@@ -1,6 +1,5 @@
 package com.uax.extretur.ui
 
-import android.R.attr.data
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -32,11 +31,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var auth: FirebaseAuth
     private var currentMonth: YearMonth = YearMonth.now()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        //aqui los savedInstanceState
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
@@ -81,8 +78,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 }
             }
         })
-
-
     }
 
 

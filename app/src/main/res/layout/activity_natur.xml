@@ -24,7 +24,7 @@
         android:id="@+id/editSearchNatur"
         android:layout_width="230sp"
         android:layout_height="50sp"
-        android:hint="Busca una actividad aquí..."
+        android:hint="@string/buscarActividad"
         android:inputType="text"
         android:layout_marginTop="15sp"
         app:layout_constraintStart_toStartOf="parent"
