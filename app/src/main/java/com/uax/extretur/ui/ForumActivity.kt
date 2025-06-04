@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.Timestamp
 import com.uax.extretur.R
 import com.uax.extretur.adapters.AdaptadorForum
 import com.uax.extretur.databinding.ActivityForumBinding
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.uax.extretur.databinding.DialogNewThemeBinding
+import com.uax.extretur.model.Comentario
 import com.uax.extretur.model.Gastro
 import com.uax.extretur.ui.GastroActivity
 import java.text.SimpleDateFormat
@@ -186,13 +188,17 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
                     ?: "Anónimo",
                 tema = temaSeleccionado
             )
+            val primerComentario = Comentario (
+                creador = auth.currentUser?.email ?: "Anónimo",
+                contenido = contenido,
+                fecha = Timestamp.now()
+            )
             db.collection("temas").add(forum)
                 .addOnSuccessListener { documentReference ->
                     forum.uid = documentReference.id
                     listaForum.add(forum)
                     adaptadorForum.notifyItemInserted(listaForum.size - 1)
-
-
+                    db.collection("temas").document(forum.uid!!).collection("comentarios").add(primerComentario)
                     val intent = Intent(applicationContext, DetailForumActivity::class.java)
                     val bundle = Bundle()
                     bundle.putSerializable("tema", forum)
@@ -214,7 +220,7 @@ class ForumActivity : AppCompatActivity(), View.OnClickListener, DialogInterface
     }
 
     private fun cargarTemas() {
-        db.collection("temas").orderBy("fecha", Query.Direction.ASCENDING).get().addOnSuccessListener { result ->
+        db.collection("temas").orderBy("fecha", Query.Direction.DESCENDING).get().addOnSuccessListener { result ->
             listaForum.clear()
             for (doc in result) {
                 val tema = doc.toObject(Forum::class.java)

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.uax.extretur.databinding.ActivityDetailForumBinding
@@ -17,6 +18,7 @@ import java.util.Locale
 
 class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailForumBinding
+    private lateinit var auth: FirebaseAuth
     val db = FirebaseFirestore.getInstance()
     private lateinit var tema: Forum
     private lateinit var listaComentarios: ArrayList<String>
@@ -25,17 +27,13 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailForumBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        auth = FirebaseAuth.getInstance()
         listaComentarios = arrayListOf()
 
         val bundle = intent.extras
         tema = bundle?.getSerializable("tema")!! as? Forum
             ?: throw IllegalArgumentException("No se ha recibido el tema")
         binding.txtThemeTitle.text = tema.titulo
-        var contenido = tema.contenido
-        val creador = tema.creador
-        val comentario = "$creador: $contenido"
-        listaComentarios.add(comentario)
         binding.txtThemeComments.text = listaComentarios.joinToString("\n") as CharSequence?
 
         acciones()
@@ -71,10 +69,9 @@ class DetailForumActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnInsertComment.id -> {
                 val textoComentario = binding.editInsertComment.text.toString()
-                val creador = tema.creador
                 if (textoComentario.isNotEmpty()) {
                     val nuevoComentario = Comentario(
-                        creador = creador.toString(),
+                        creador = auth.currentUser?.email.toString(),
                         contenido = textoComentario.toString(),
                         fecha = Timestamp.now()
                     )
