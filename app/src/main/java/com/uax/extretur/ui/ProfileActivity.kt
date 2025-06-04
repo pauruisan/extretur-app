@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.uax.extretur.R
 import com.uax.extretur.databinding.ActivityProfileBinding
+import kotlin.toString
 
 class ProfileActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityProfileBinding
@@ -28,7 +29,8 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
         auth = FirebaseAuth.getInstance()
 
         val prefs = getSharedPreferences("perfil", MODE_PRIVATE)
-        val uriString = prefs.getString("imageUri", null)
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        val uriString = prefs.getString("imageUri_$uid", null)
         if (uriString != null) {
             val imageUri = Uri.parse(uriString)
             Glide.with(this)
@@ -88,7 +90,9 @@ class ProfileActivity : AppCompatActivity(), OnClickListener {
             val imageUri = data?.data
             if (imageUri !=null){
                 val prefs = getSharedPreferences("perfil", MODE_PRIVATE)
-                prefs.edit().putString("imageUri", imageUri.toString()).apply()
+                val uid = FirebaseAuth.getInstance().currentUser?.uid?: return
+                prefs.edit().putString("imageUri_$uid", imageUri.toString()).apply()
+
                 Glide.with(this)
                     .load(imageUri)
                     .circleCrop()
